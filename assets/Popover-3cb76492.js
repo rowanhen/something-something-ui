@@ -34,4 +34,4 @@ import{a as f,j as l}from"./jsx-runtime-86dfebf6.js";import{r}from"./index-1b03f
           transform: translateY(-50%);
           offset-anchor: center left;
         `;default:return""}}};
-`;try{c.displayName="Popover",c.__docgenInfo={description:"",displayName:"Popover",props:{popoverContent:{defaultValue:null,description:"",name:"popoverContent",required:!0,type:{name:"ReactNode"}},defaultPosition:{defaultValue:{value:"bottom"},description:"",name:"defaultPosition",required:!1,type:{name:"enum",value:[{value:'"top"'},{value:'"left"'},{value:'"right"'},{value:'"bottom"'}]}}}}}catch{}export{c as P};
+`;try{c.displayName="Popover",c.__docgenInfo={description:"",displayName:"Popover",props:{popoverContent:{defaultValue:null,description:"",name:"popoverContent",required:!0,type:{name:"ReactNode"}},defaultPosition:{defaultValue:{value:"bottom"},description:"",name:"defaultPosition",required:!1,type:{name:"enum",value:[{value:'"left"'},{value:'"right"'},{value:'"top"'},{value:'"bottom"'}]}}}}}catch{}export{c as P};
