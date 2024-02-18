@@ -26,6 +26,9 @@ jobs:
       - name: install dep
         run: npm ci
 
+      - name: build
+        run: npm run build
+
       - name: configure git
         run: |
           git config --local user.email "action@github.com"
