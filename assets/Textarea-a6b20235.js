@@ -1,0 +1,1 @@
+import{j as r}from"./jsx-runtime-86dfebf6.js";const e=()=>r("div",{children:"Hello"});try{e.displayName="Textarea",e.__docgenInfo={description:"",displayName:"Textarea",props:{}}}catch{}export{e as T};
