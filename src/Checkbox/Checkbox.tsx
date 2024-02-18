@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import styled from "styled-components";
 import { Field } from "../Field"; // Importing the previously created Field component
-import { colors } from "../theme";
 
 export interface CheckboxProps {
   id: string;
@@ -52,11 +51,11 @@ const StyledCheckbox = styled.input`
   align-items: center;
   width: 18px;
   height: 18px;
-  background: ${({ checked }) =>
-    checked ? colors.brandeis_blue.DEFAULT : colors.white_smoke.DEFAULT};
+  background: ${({ checked, theme }) =>
+    checked ? theme.primaryVariant : theme.background};
   border: 1px solid
-    ${({ checked }) =>
-      checked ? colors.brandeis_blue.DEFAULT : colors.white_smoke[400]};
+    ${({ checked, theme }) =>
+      checked ? theme.primaryVariant : theme.background};
   border-radius: 6px;
   transition: all 150ms;
   margin-right: 8px;

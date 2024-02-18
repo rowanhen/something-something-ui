@@ -1,30 +1,10 @@
 import { FunctionComponent, ReactNode, useState } from "react";
 import styled from "styled-components";
-import { colors } from "../theme";
 
 export interface AccordianProps {
   title: string;
   children: ReactNode;
 }
-
-const AccordianSection = styled.section`
-  margin: 10px 0;
-`;
-
-const AccordianTitle = styled.button`
-  padding: 10px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  transition: background-color 0.4s ease;
-  background: ${colors.white_smoke.DEFAULT};
-  border: 1px solid ${colors.night.DEFAULT};
-`;
-
-const AccordianContent = styled.div`
-  overflow: hidden;
-  padding: 4px;
-`;
 
 export const Accordian: FunctionComponent<AccordianProps> = ({
   title,
@@ -43,11 +23,33 @@ export const Accordian: FunctionComponent<AccordianProps> = ({
   };
 
   return (
-    <AccordianSection>
+    <Container>
       <AccordianTitle onClick={toggleAccordian} onKeyDown={handleKeyPress}>
         {title}
       </AccordianTitle>
       {isOpen && <AccordianContent>{children}</AccordianContent>}
-    </AccordianSection>
+    </Container>
   );
 };
+
+const Container = styled.section`
+  margin: 10px 0;
+  color: ${(props) => props.theme.textPrimary};
+`;
+
+const AccordianTitle = styled.button`
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  background: ${(props) => props.theme.background};
+  border: ${(props) => props.theme.borderPrimary};
+  color: ${(props) => props.theme.textPrimary};
+`;
+
+const AccordianContent = styled.div`
+  overflow: hidden;
+  padding: 4px;
+  background: ${(props) => props.theme.background};
+`;

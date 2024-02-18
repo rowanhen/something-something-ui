@@ -8,7 +8,6 @@ import {
   useState,
 } from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../theme";
 
 export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
   popoverContent: ReactNode;
@@ -56,6 +55,7 @@ const PopoverContainer = styled.div`
   position: relative;
   display: inline-block;
   cursor: pointer;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const Trigger = styled.div``;
@@ -63,8 +63,8 @@ const Trigger = styled.div``;
 const PopoverContent = styled.div<{ position: string }>`
   position: absolute;
   padding: 8px;
-  background-color: ${colors.white_smoke.DEFAULT};
-  border: 1px solid ${colors.night.DEFAULT};
+  background-color: ${(props) => props.theme.background};
+  border: ${(props) => props.theme.borderPrimary};
   z-index: 1000;
 
   ${({ position }) => {

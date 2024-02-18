@@ -1,6 +1,5 @@
 import { FC, HTMLAttributes, ReactNode, useState } from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../theme";
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   defaultPosition?: "top" | "left" | "right" | "bottom";
@@ -38,7 +37,8 @@ const Container = styled.div`
   position: relative;
   display: inline-block;
   cursor: help;
-  border-bottom: 1px dashed ${colors.ut_orange[600]};
+  border-bottom: 1px dashed ${(props) => props.theme.primaryVariant};
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const Title = styled.h4`
@@ -50,8 +50,8 @@ const Title = styled.h4`
 const Tip = styled.div<{ position: string }>`
   position: absolute;
   padding: 8px;
-  background-color: ${colors.white_smoke.DEFAULT};
-  border: 1px solid ${colors.night.DEFAULT};
+  background-color: ${(props) => props.theme.background};
+  border: ${(props) => props.theme.borderPrimary};
   z-index: 1000;
 
   ${({ position }) => {
