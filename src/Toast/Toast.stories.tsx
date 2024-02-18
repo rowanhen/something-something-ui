@@ -1,4 +1,5 @@
 import { Story } from "@storybook/react";
+import { Button } from "../Button";
 import { PortalProvider } from "../PortalProvider";
 import { Toast, ToastProps } from "./Toast"; // Ensure correct import path
 import { ToastProvider, useToast } from "./ToastProvider"; // Ensure correct import path
@@ -21,9 +22,9 @@ const Template: Story<ToastProps> = (args) => {
 const CreateToast = (args: ToastProps) => {
   const { addToast } = useToast();
   return (
-    <button onClick={() => addToast(<Toast {...args} />, args.id)}>
+    <Button onClick={() => addToast(<Toast {...args} />, args.id)}>
       Open toast
-    </button>
+    </Button>
   );
 };
 

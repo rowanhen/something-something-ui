@@ -77,7 +77,8 @@ export const Dialog: FC<DialogProps> = ({
 };
 
 const StyledDialog = styled.dialog<{ width?: string }>(
-  ({ width }) => css`
+  ({ width, theme }) => css`
+    color: ${theme.textPrimary};
     min-width: 300px;
 
     ${width &&

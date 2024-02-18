@@ -1,7 +1,6 @@
 import { FC, InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { Field } from "../Field"; // Importing the Field component
-import { colors } from "../theme";
 
 export interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -50,6 +49,7 @@ export const Toggle: FC<ToggleProps> = ({
 
 const Container = styled.div`
   display: flex;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const StyledField = styled(Field)`
@@ -76,7 +76,7 @@ const ToggleSwitch = styled.label`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ${colors.white_smoke[400]};
+    background-color: ${(props) => props.theme.surface};
     transition: 0.4s;
     border-radius: 28px;
 
@@ -87,18 +87,18 @@ const ToggleSwitch = styled.label`
       width: 22px;
       left: 4px;
       bottom: 4px;
-      background-color: ${colors.white_smoke.DEFAULT};
+      background-color: ${(props) => props.theme.background};
       transition: 0.4s;
       border-radius: 50%;
     }
   }
 
   input:checked + span {
-    background-color: ${colors.brandeis_blue.DEFAULT};
+    background-color: ${(props) => props.theme.primaryVariant};
   }
 
   input:focus + span {
-    box-shadow: 0 0 1px ${colors.brandeis_blue.DEFAULT};
+    box-shadow: 0 0 1px 1px ${(props) => props.theme.secondaryVariant};
   }
 
   input:checked + span:before {

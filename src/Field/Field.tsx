@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import styled from "styled-components";
-import { colors } from "../theme";
 
 export interface FieldProps {
   label?: string;
@@ -37,22 +36,24 @@ export const Field: FC<FieldProps> = ({
 
 const FieldContainer = styled.div`
   margin-bottom: 20px;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const FieldLabel = styled.label`
   display: block;
   font-weight: bold;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const AssistiveText = styled.span`
   display: block;
   margin-top: 4px;
   font-size: 16px;
-  color: ${colors.night[600]};
+  color: ${(props) => props.theme.textSecondary};
 `;
 
 const RequiredMessage = styled.span`
   display: block;
-  color: ${colors.red_pantone.DEFAULT};
+  color: ${(props) => props.theme.error};
   font-size: 16px;
 `;

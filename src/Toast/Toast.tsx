@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import styled, { css } from "styled-components";
 import { Button } from "..";
 import { usePortal } from "../PortalProvider";
-import { colors } from "../theme";
 import { useToast } from "./ToastProvider"; // Adjust the import path as needed
 
 export interface ToastProps {
@@ -94,8 +93,9 @@ const StyledToast = styled.div<{
   position: fixed;
   width: ${(props) => props.width || "300px"};
   padding: 12px;
-  background-color: ${colors.white_smoke.DEFAULT};
-  border: 1px solid ${colors.night.DEFAULT};
+  background-color: ${(props) => props.theme.background};
+  border: ${(props) => props.theme.borderPrimary};
+  color: ${(props) => props.theme.textPrimary};
   border-radius: 4px;
   z-index: 1000;
 

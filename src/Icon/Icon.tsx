@@ -43,7 +43,7 @@ interface IIcon {
 }
 
 const Container = styled.div<IIcon>(
-  ({ size, rotate, color }) => css`
+  ({ size, rotate, color, ...props }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,7 +52,7 @@ const Container = styled.div<IIcon>(
     height: ${size}px;
     transform: rotate(${rotate}deg);
     svg {
-      color: ${colors[color].DEFAULT} !important;
+      color: ${color ? colors[color].DEFAULT : props.theme.surface} !important;
     }
   `
 );

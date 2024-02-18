@@ -70,6 +70,10 @@ const ButtonStyled = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: ${(props) => props.theme.textPrimary};
+  background: ${(props) => props.theme.background};
+  border-radius: ${(props) => props.theme.borderRadius};
+  border: ${(props) => props.theme.borderPrimary};
 
   ${({ size = "medium" }) => sizeStyles[size]}
 

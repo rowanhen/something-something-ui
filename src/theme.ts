@@ -99,3 +99,39 @@ type ColorShade =
 type ColorName = keyof typeof colors;
 export type Colors = keyof typeof colors;
 export type ColorType = `${ColorName}.${ColorShade}`;
+
+export const lightTheme = {
+  background: colors.white_smoke.DEFAULT,
+  invertedBackground: colors.night[600],
+  surface: colors.white_smoke[400],
+  primary: colors.brandeis_blue.DEFAULT,
+  primaryVariant: colors.brandeis_blue.DEFAULT,
+  secondaryVariant: colors.brandeis_blue[600],
+  onPrimary: colors.night.DEFAULT,
+  textPrimary: colors.night.DEFAULT,
+  textSecondary: colors.night[600],
+  borderPrimary: `1px solid  ${colors.night.DEFAULT}`,
+  borderSecondary: `1px solid  ${colors.night[600]}`,
+  borderRadius: "2px",
+  error: colors.red_pantone.DEFAULT,
+  onError: colors.white_smoke.DEFAULT,
+  colors,
+};
+
+export const darkTheme = {
+  background: colors.night[600],
+  invertedBackground: colors.white_smoke.DEFAULT,
+  surface: colors.night[700],
+  primary: colors.brandeis_blue.DEFAULT,
+  primaryVariant: colors.ut_orange.DEFAULT,
+  secondaryVariant: colors.ut_orange[600],
+  onPrimary: colors.white_smoke.DEFAULT,
+  textPrimary: colors.white_smoke.DEFAULT,
+  textSecondary: colors.white_smoke[600],
+  borderPrimary: `1px solid  ${colors.white_smoke[300]}`,
+  borderSecondary: `1px solid  ${colors.white_smoke[600]}`,
+  borderRadius: "2px",
+  error: colors.red_pantone.DEFAULT,
+  onError: colors.white_smoke.DEFAULT,
+  colors,
+};

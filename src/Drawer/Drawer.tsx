@@ -1,6 +1,7 @@
 import { ElementRef, FC, PropsWithChildren, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+import { Button } from "../Button";
 import { usePortal } from "../PortalProvider";
 
 export interface DrawerProps {
@@ -90,10 +91,11 @@ const StyledDrawer = styled.div<{ open: boolean; width?: string }>`
   right: ${(props) => (props.open ? "0" : `-${props.width || "340px"}`)};
   width: ${(props) => props.width || "300px"};
   height: 100%;
-  background-color: white;
-  border-left: 1px solid black;
+  background-color: ${(props) => props.theme.background};
+  border-left: ${(props) => props.theme.borderPrimary};
   transition: right 0.3s ease;
   z-index: 1000;
+  color: ${(props) => props.theme.textPrimary};
 `;
 
 const Content = styled.div`
@@ -112,7 +114,7 @@ const Children = styled.div``;
 
 const Title = styled.h2``;
 
-const CloseButton = styled.button``;
+const CloseButton = styled(Button)``;
 
 const Footer = styled.div`
   display: flex;
@@ -121,6 +123,6 @@ const Footer = styled.div`
   gap: 12px;
 `;
 
-const DrawerButton = styled.button`
+const DrawerButton = styled(Button)`
   flex-grow: 1;
 `;

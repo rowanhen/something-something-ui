@@ -1,6 +1,8 @@
 import { Preview } from "@storybook/react";
 import React from "react";
-import { createGlobalStyle } from "styled-components";
+import { useDarkMode } from "storybook-dark-mode";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { darkTheme, lightTheme } from "../src/theme";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -11,15 +13,22 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const withThemeProvider = (Story, context) => {
+  const isDark = useDarkMode();
+  const theme = isDark ? darkTheme : lightTheme;
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Story {...context} />
+    </ThemeProvider>
+  );
+};
+
+const decorators = [withThemeProvider];
+
 const preview: Preview = {
-  decorators: [
-    (Story) => (
-      <>
-        <GlobalStyle />
-        <Story />
-      </>
-    ),
-  ],
+  decorators,
 };
 
 export default preview;

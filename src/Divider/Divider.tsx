@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../theme";
 
 export interface DividerProps {
   type: "horizontal" | "vertical";
@@ -17,6 +16,6 @@ const DividerStyled = styled.div<DividerProps>`
     ${type === "horizontal" && "width"}: 100%;
     ${type === "horizontal" ? "height" : "width"}: ${size}px;
     margin: ${margin};
-    background: ${colors.night.DEFAULT};
+    background: ${(props) => props.theme.borderPrimary};
   `}
 `;

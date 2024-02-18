@@ -19,7 +19,8 @@ export const Ascii: FC<AsciiProps> = ({ ascii, size = 16 }) => {
 const Container = styled.div<{
   size: number;
 }>(
-  ({ size }) => css`
+  ({ size, theme }) => css`
     font-size: ${size}px;
+    color: ${theme.textPrimary};
   `
 );

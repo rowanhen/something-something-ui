@@ -7,17 +7,22 @@ export interface LoaderProps {
   size?: number;
 }
 
-export const Loader: FC<LoaderProps> = ({ color = "night", size = 16 }) => {
+export const Loader: FC<LoaderProps> = ({ color, size = 16 }) => {
   return <Container color={color} size={size} />;
 };
 
-const Container = styled.div<{ size: number; color: Colors }>`
+const Container = styled.div<{ size: number; color?: Colors }>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
   display: inline-block;
   box-sizing: border-box;
 
-  --c: no-repeat linear-gradient(${({ color }) => colors[color].DEFAULT} 0 0);
+  --c: no-repeat
+    linear-gradient(
+      ${({ color, theme }) =>
+          color ? colors[color].DEFAULT : theme.invertedBackground}
+        0 0
+    );
   background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
   background-size: 20% 100%;
   animation: l1 1s infinite linear;

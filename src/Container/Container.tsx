@@ -1,6 +1,5 @@
 import { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../theme";
 
 export interface ContainerProps {
   children: ReactNode;
@@ -32,20 +31,21 @@ export const Container: FC<ContainerProps> = ({
 };
 
 const Wrapper = styled.div`
-  background-color: ${colors.white_smoke[900]};
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.textPrimary};
   padding: 12px;
 `;
 
 const Border = styled.div`
   padding: 20px;
-  border: 1px solid ${colors.night.DEFAULT};
+  border: ${(props) => props.theme.borderPrimary};
   position: relative;
 `;
 
 const Label = styled.h4<Pick<ContainerProps, "labelX" | "labelY">>`
   ${({ labelX, labelY }) => css`
     position: absolute;
-    background-color: ${colors.white_smoke[900]};
+    background-color: ${(props) => props.theme.background};
     padding: 0 12px;
 
     ${labelY === "top" &&

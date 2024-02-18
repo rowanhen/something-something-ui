@@ -10,7 +10,6 @@ const Template: Story = (args: LoaderProps) => <Loader {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  color: "night",
   size: 32,
 };
 
