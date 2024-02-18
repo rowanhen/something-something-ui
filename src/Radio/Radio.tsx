@@ -7,7 +7,7 @@ export interface RadioProps {
   name: string;
   assistiveText?: string;
   value: string;
-  displayValue: string;
+  displayValue?: string;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   requiredMessage?: string;
