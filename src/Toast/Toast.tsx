@@ -53,6 +53,7 @@ export const Toast: FC<ToastProps> = ({
       }, autoClose * 1000);
       return () => clearTimeout(timer);
     }
+    return;
   }, [autoClose, handleClose, id, removeToast]);
 
   if (!portalRoot || !open) return null;

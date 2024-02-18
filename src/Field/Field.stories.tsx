@@ -1,8 +1,8 @@
-import { Field } from './Field';
+import { Field } from "./Field";
 
 export default {
-  component: Field, 
-  title: 'Field',
+  component: Field,
+  title: "Field",
 };
 
 export const Default = () => <Field />;

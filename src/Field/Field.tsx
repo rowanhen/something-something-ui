@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 import styled from "styled-components";
 import { colors } from "../theme";
 
-interface FieldProps {
+export interface FieldProps {
   label?: string;
   children?: ReactNode;
   assistiveText?: string;
