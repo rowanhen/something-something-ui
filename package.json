@@ -19,12 +19,13 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit",
     "build-storybook": "storybook build",
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
-    "release": "standard-version"
+    "release": "standard-version",
+    "pre-commit-lint": "npm run check-types && lint-staged"
   },
   "dependencies": {
     "react": "^18.2.0",

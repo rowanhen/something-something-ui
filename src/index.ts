@@ -1,4 +1,5 @@
 export * from "./Accordian";
+export * from "./Ascii";
 export * from "./Badge";
 export * from "./Banner";
 export * from "./Button";
@@ -18,6 +19,7 @@ export * from "./Link";
 export * from "./Loader";
 export * from "./Menu";
 export * from "./Popover";
+export * from "./PortalProvider";
 export * from "./Radio";
 export * from "./Row";
 export * from "./TabList";
