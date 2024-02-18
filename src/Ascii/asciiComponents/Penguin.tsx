@@ -5,8 +5,7 @@ export const Penguin = () => {
  __
 ( o>
 ///\\ 
-\\V_/_
-            `}
+\\V_/_`}
     </pre>
   );
 };
