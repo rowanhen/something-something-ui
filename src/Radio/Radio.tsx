@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { Field } from "../Field";
 
 export interface RadioProps {
-  label: string;
+  label?: string;
   name: string;
   assistiveText?: string;
   value: string;
+  displayValue: string;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   requiredMessage?: string;
@@ -18,6 +19,7 @@ export const Radio: FC<RadioProps> = ({
   name,
   assistiveText,
   value,
+  displayValue,
   checked,
   onChange,
   requiredMessage,
@@ -47,7 +49,7 @@ export const Radio: FC<RadioProps> = ({
           disabled={disabled}
           id={name}
         />
-        {label}
+        {displayValue || value}
       </RadioContainer>
     </Field>
   );
