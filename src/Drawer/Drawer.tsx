@@ -1,33 +1,22 @@
 import { ElementRef, FC, PropsWithChildren, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { Button } from "../Button";
 import { usePortal } from "../PortalProvider";
 
 export interface DrawerProps {
   open: boolean;
+  onChange?: () => void;
   handleClose: () => void;
   title?: string;
   closeButton?: boolean;
-  primaryButton?: {
-    label: string;
-    onClick: () => void;
-  };
-  secondaryButton?: {
-    label: string;
-    onClick: () => void;
-  };
   width?: string;
   closeOnOutsideClick?: boolean;
 }
 
 export const Drawer: FC<DrawerProps & PropsWithChildren> = ({
   open,
+  onChange,
   handleClose,
-  title,
-  closeButton,
-  primaryButton,
-  secondaryButton,
   width,
   closeOnOutsideClick = true,
   children,
@@ -53,32 +42,16 @@ export const Drawer: FC<DrawerProps & PropsWithChildren> = ({
   }, []);
 
   useEffect(() => {
-    // Implement any effect you need when the drawer opens/closes
+    if (onChange) {
+      onChange();
+    }
   }, [open]);
 
   if (!portalRoot) return null;
 
   const drawerContent = (
     <StyledDrawer ref={drawerRef} open={open} width={width}>
-      <Content>
-        <Header>
-          {title && <Title>{title}</Title>}
-          {closeButton && <CloseButton onClick={handleClose}>X</CloseButton>}
-        </Header>
-        <Children>{children}</Children>
-        <Footer>
-          {secondaryButton && (
-            <DrawerButton onClick={secondaryButton.onClick}>
-              {secondaryButton.label}
-            </DrawerButton>
-          )}
-          {primaryButton && (
-            <DrawerButton onClick={primaryButton.onClick}>
-              {primaryButton.label}
-            </DrawerButton>
-          )}
-        </Footer>
-      </Content>
+      {children}
     </StyledDrawer>
   );
 
@@ -96,33 +69,4 @@ const StyledDrawer = styled.div<{ open: boolean; width?: string }>`
   transition: right 0.3s ease;
   z-index: 1000;
   color: ${(props) => props.theme.textPrimary};
-`;
-
-const Content = styled.div`
-  height: 100%;
-  padding: 24px;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-`;
-
-const Children = styled.div``;
-
-const Title = styled.h2``;
-
-const CloseButton = styled(Button)``;
-
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-end;
-  gap: 12px;
-`;
-
-const DrawerButton = styled(Button)`
-  flex-grow: 1;
 `;
