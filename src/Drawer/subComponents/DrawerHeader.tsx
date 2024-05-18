@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
-import { Button } from "../Button"; // Adjust path as necessary
+import { Button } from "../../Button";
 
 export interface DrawerHeaderProps {
   handleClose: () => void;
@@ -22,16 +22,6 @@ export const DrawerHeader: FC<DrawerHeaderProps & PropsWithChildren> = ({
   </Header>
 );
 
-export const DrawerBody: FC<PropsWithChildren> = ({ children }) => (
-  <Children>{children}</Children>
-);
-
-export const DrawerFooter: FC<PropsWithChildren> = ({ children }) => (
-  <Footer>
-    <Children>{children}</Children>
-  </Footer>
-);
-
 const Header = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,10 +41,3 @@ const Children = styled.div``;
 const Title = styled.h2``;
 
 const CloseButton = styled(Button)``;
-
-const Footer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-end;
-  gap: 12px;
-`;
